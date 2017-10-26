@@ -1,0 +1,46 @@
+---
+- hosts: all
+  become: true
+  become_method: sudo
+
+  vars:
+    docker_users:
+    - ubuntu
+
+  roles:
+  - andrelohmann.docker
+
+  tasks:
+  - name: update the machine
+    apt:
+      update_cache: yes
+
+  - name: upgrade the machine
+    apt:
+      upgrade: full
+
+  - name: include hosts-tasks
+    include: hosts-tasks.yml
+
+  - name: activate ipv6 forwarding
+    lineinfile:
+      dest: /etc/sysctl.conf
+      regexp: "^net.ipv6.conf.all.forwarding"
+      line: "net.ipv6.conf.all.forwarding=1"
+      state: present
+
+  - name: activate forwarding
+    command: sysctl -p
+
+  - name: determine swarm status
+    shell: "docker info | egrep '^Swarm: ' | cut -d ' ' -f2"
+    register: swarm_status
+
+  - name: read worker token
+    command: cat /vagrant/ansible/workertoken
+    register: worker_token
+
+  - name: join the swarm cluster
+    command: "docker swarm join --token {{ worker_token.stdout }} 192.168.233.151:2377"
+    when: swarm_status.stdout == 'inactive'
+...

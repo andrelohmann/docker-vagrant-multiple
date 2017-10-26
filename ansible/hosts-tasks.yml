@@ -2,16 +2,16 @@
 - name: add node1 to /etc/hosts
   lineinfile:
     dest: /etc/hosts
-    line: "192.168.233.151 node1.local.dev"
+    line: "192.168.233.151 node1 node1.local.dev"
     state: present
 - name: add node2 to /etc/hosts
   lineinfile:
     dest: /etc/hosts
-    line: "192.168.233.152 node2.local.dev"
+    line: "192.168.233.152 node2 node2.local.dev"
     state: present
 - name: add node3 to /etc/hosts
   lineinfile:
     dest: /etc/hosts
-    line: "192.168.233.153 node3.local.dev"
+    line: "192.168.233.153 node3 node3.local.dev"
     state: present
 ...

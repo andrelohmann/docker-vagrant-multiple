@@ -2,6 +2,7 @@
 /docker-images/*
 !/docker-images/default
 /ansible/roles
+/ansible/workertoken
 .DS_Store
 *.retry
 *.log
