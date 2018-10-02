@@ -19,8 +19,8 @@ Vagrant.configure("2") do |config|
       vb.cpus = "1"
     end
     b.vm.synced_folder ".", "/vagrant", disabled: true
-    b.vm.synced_folder "ansible", "/vagrant/ansible", create: true, owner: "ubuntu", group: "ubuntu", mount_options: ["dmode=777,fmode=777"]
-    b.vm.synced_folder "docker-images", "/home/ubuntu/docker-images", create: true, owner: "ubuntu", group: "ubuntu", mount_options: ["dmode=777,fmode=777"]
+    b.vm.synced_folder "ansible", "/vagrant/ansible", create: true, owner: "vagrant", group: "vagrant", mount_options: ["dmode=775,fmode=775"]
+    b.vm.synced_folder "docker-images", "/home/ubuntu/docker-images", create: true, owner: "vagrant", group: "vagrant", mount_options: ["dmode=775,fmode=775"]
     b.vbguest.auto_update = true
 
     b.vm.network "private_network", ip: "192.168.233.151"
@@ -44,8 +44,8 @@ Vagrant.configure("2") do |config|
       vb.cpus = "1"
     end
     b.vm.synced_folder ".", "/vagrant", disabled: true
-    b.vm.synced_folder "ansible", "/vagrant/ansible", create: true, owner: "ubuntu", group: "ubuntu", mount_options: ["dmode=777,fmode=777"]
-    b.vm.synced_folder "docker-images", "/home/ubuntu/docker-images", create: true, owner: "ubuntu", group: "ubuntu", mount_options: ["dmode=777,fmode=777"]
+    b.vm.synced_folder "ansible", "/vagrant/ansible", create: true, owner: "vagrant", group: "vagrant", mount_options: ["dmode=775,fmode=775"]
+    b.vm.synced_folder "docker-images", "/home/ubuntu/docker-images", create: true, owner: "vagrant", group: "vagrant", mount_options: ["dmode=775,fmode=775"]
     b.vbguest.auto_update = true
 
     b.vm.network "private_network", ip: "192.168.233.152"
@@ -69,8 +69,8 @@ Vagrant.configure("2") do |config|
       vb.cpus = "1"
     end
     b.vm.synced_folder ".", "/vagrant", disabled: true
-    b.vm.synced_folder "ansible", "/vagrant/ansible", create: true, owner: "ubuntu", group: "ubuntu", mount_options: ["dmode=777,fmode=777"]
-    b.vm.synced_folder "docker-images", "/home/ubuntu/docker-images", create: true, owner: "ubuntu", group: "ubuntu", mount_options: ["dmode=777,fmode=777"]
+    b.vm.synced_folder "ansible", "/vagrant/ansible", create: true, owner: "vagrant", group: "vagrant", mount_options: ["dmode=775,fmode=775"]
+    b.vm.synced_folder "docker-images", "/home/ubuntu/docker-images", create: true, owner: "vagrant", group: "vagrant", mount_options: ["dmode=775,fmode=775"]
     b.vbguest.auto_update = true
 
     b.vm.network "private_network", ip: "192.168.233.153"
